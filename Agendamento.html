@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\IMG\favicon.png" type="image/png">
+    <title>Agendamento NAF - Unifeso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #106e79;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #106e79;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1a918b;
+        }
+        .agendamentos {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .agendamentos li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agendamento NAF - Unifeso</h1>
+        <form id="agendamentoForm">
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+            <label for="horario">Horário:</label>
+            <select id="horario" name="horario" required>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+            </select>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Agendar</button>
+        </form>
+        <div class="agendamentos">
+            <h2>Agendamentos</h2>
+            <ul id="listaAgendamentos">
+                <!-- Os agendamentos serão exibidos aqui -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Função para criar um item de agendamento na lista
+        function criarItemAgendamento(data, horario, nome, email) {
+            var item = document.createElement('li');
+            item.textContent = 'Data: ' + data + ', Horário: ' + horario + ', Nome: ' + nome + ', E-mail: ' + email;
+            return item;
+        }
+
+        // Função para limpar o formulário após o envio
+        function limparFormulario() {
+            document.getElementById('data').value = '';
+            document.getElementById('horario').value = '';
+            document.getElementById('nome').value = '';
+            document.getElementById('email').value = '';
+        }
+
+        document.getElementById('agendamentoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            // Coleta os dados do formulário
+            var data = document.getElementById('data').value;
+            var horario = document.getElementById('horario').value;
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+
+            // Cria um item de agendamento na lista
+            var itemAgendamento = criarItemAgendamento(data, horario, nome, email);
+
+            // Adiciona o item na lista de agendamentos
+            var listaAgendamentos = document.getElementById('listaAgendamentos');
+            listaAgendamentos.appendChild(itemAgendamento);
+
+            // Limpa o formulário
+            limparFormulario();
+
+            // Redireciona para a página de confirmação
+            window.location.href = "file:///C:/Users/felip/OneDrive/%C3%81rea%20de%20Trabalho/AgendaF%C3%A1cilNAF/Confirmacao.html" ; // Atualize o caminho conforme necessário
+        });
+    </script>
+</body>
+</html>

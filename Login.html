@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\IMG\favicon.png" type="image/png">
+    <title>Agendamento NAF - Unifeso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #106e79;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #106e79;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1a918b;
+        }
+        .options {
+            margin-top: 20px;
+            color: #666;
+        }
+        .options a {
+            color: #106e79;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .options a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="profileForm" style="display: none;">
+        <h2>Perfil do Usuário</h2>
+        <label for="userName">Nome de usuário:</label>
+        <input type="text" id="userName" name="userName" required>
+        <label for="userEmail">E-mail:</label>
+        <input type="email" id="userEmail" name="userEmail" required>
+        <button type="submit">Salvar</button>
+    </div>
+    <div class="container" id="loginContainer">
+        <h1>Agendamento NAF - Unifeso</h1>
+        <form id="loginForm">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <button type="button" onclick="redirectToAgendamento()">Entrar</button>
+        </form>
+        <div class="options">
+            <a href="EsqueciSenha.html">Esqueci minha senha</a>
+            <span>ou</span>
+            <a href="Cadastro.html" id="signup">Cadastre-se</a>
+        </div>
+    </div>
+
+    <div class="container" style="display: none;" id="forgotPasswordContainer">
+        <h1>Esqueci Minha Senha</h1>
+        <form>
+            <label for="emailForgot">E-mail:</label>
+            <input type="email" id="emailForgot" name="emailForgot" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="options">
+            <a href="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\Login.html">Voltar para o login</a>
+        </div>
+    </div>
+
+    <script>
+        function redirectToAgendamento() {
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+
+            // Verifica se o email e senha correspondem aos dados cadastrados
+            if (email === 'exemplo@gmail.com' && senha === 'senha123') {
+                // Se os dados estiverem corretos, redireciona para o link desejado
+                window.location.href = 'Agendamento.html';
+            } else {
+                // Caso contrário, exibe uma mensagem de erro
+                alert('Email ou senha incorretos. Por favor, tente novamente.');
+            }
+        }
+    </script>
+</body>
+</html>

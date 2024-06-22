@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\IMG\favicon.png" type="image/png">
+    <title>Home - NAF Unifeso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adicionando um fundo branco semi-transparente para melhor legibilidade do conteúdo */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #106e79;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding-bottom: 10px; /* Adicionando espaço para a logo */
+            overflow: hidden; /* Evita que o conteúdo ultrapasse a barra */
+        }
+        
+        h1 {
+            color: #000000;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: -10px; /* Move a logo para cima para cobrir a barra verde */
+        }
+        .login-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color:#106e79;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .login-link:hover {
+            background-color: #1a918b;
+        }
+    </style>
+</head>
+<body>
+    <div id="profileContainer" style="display: none;">
+        <h2>Perfil do Usuário</h2>
+        <p>Email: <span id="userEmail"></span></p>
+        <button onclick="verAgendamentos()">Ver Agendamentos</button>
+        <button onclick="logout()">Sair</button>
+    </div>
+    <script>
+        // Função para decodificar um token JWT (simulado)
+        function jwt_decode(token) {
+            return JSON.parse(atob(token));
+        }
+
+        // Função para ler o valor de um cookie por nome
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (let cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return null;
+        }
+
+        // Verifica se há um token de autenticação no cookie
+        var token = getCookie('token');
+
+        if (token) {
+            // Decodifica o token JWT para obter o email do usuário
+            var decodedToken = jwt_decode(token);
+            var userEmail = decodedToken.email;
+            // Aqui você pode usar o email do usuário como preferir, como exibir uma mensagem de boas-vindas
+            console.log('Usuário autenticado:', userEmail);
+        } else {
+            // Se não houver um token, redireciona para a página de login
+            window.location.href = '';
+        }
+    </script>
+    <div class="header">
+        <div class="header-bar"></div>
+        <img src="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\IMG\UNIFESO-BRANCO.png" alt="Logo NAF Unifeso" class="logo">
+    </div>
+    <div class="container">
+        <h1>Bem-vindo ao Núcleo de Apoio Contábil e Fiscal (NAF) - Unifeso</h1>
+        <p>O Núcleo de Apoio Contábil e Fiscal (NAF), do Centro Universitário Serra dos Órgãos (Unifeso), está com atendimento aberto à população com menor poder aquisitivo, nas segundas e terças-feiras, das 16h às 18h30, no Campus Antonio Paulo Capanema de Souza, no Alto, em Teresópolis. Para receber assistência, os interessados precisam agendar o atendimento por meio do telefone (21) 2641-7074.</p>
+        <p>O NAF é um projeto desenvolvido pela Receita Federal do Brasil em parceria com instituições de ensino superior. Todos os anos, durante o período de declaração do Imposto de Renda, a agenda fica cheia. Alunos do curso de Ciências Contábeis, acompanhados de professores, dão assistência àqueles que estão com dúvidas ao declarar. Hoje, o curso vem sendo ofertado pelo Unifeso na modalidade híbrida, ou seja, 70% do curso on-line e 30% presencial, e 100% on-line.</p>
+        <p>“Unifeso tem convênio com a Receita desde 2020, para os estudantes é um momento de prática na vida real. Nessa época do ano, em que as pessoas devem prestar contas à Receita, nosso movimento aumenta bastante e é um momento de muito crescimento prático para os estudantes envolvidos”, contou a coordenadora dos dois cursos, Telma Silva. Faça o seu agendamento. Não deixe para última hora.</p>
+        <a href='C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\Login.html' class="login-link">Entrar no Perfil</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\IMG\favicon.png" type="image/png">
+    <title>Cadastro - Agendamento NAF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #106e79;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding-bottom: 10px; /* Adicionando espaço para a logo /
+            overflow: hidden; / Evita que o conteúdo ultrapasse a barra */
+        }
+        h1 {
+            color: #106e79;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #106e79;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1a918b;
+        }
+        .login-link {
+            margin-top: 20px;
+        }
+        .login-link a {
+            color: #106e79;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-bar"></div>
+        <img src="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\IMG\UNIFESO-BRANCO.png" alt="Logo NAF Unifeso" class="logo">
+    </div>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form id="registrationForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div class="login-link">
+            <a href="C:\Users\felip\OneDrive\Área de Trabalho\AgendaFácilNAF\Login.html">Já possui uma conta? Faça login aqui.</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('registrationForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Evita o envio do formulário
+
+                // Coleta os dados do formulário
+                var nome = document.getElementById('nome').value;
+                var email = document.getElementById('email').value;
+                var senha = document.getElementById('senha').value;
+
+                // Por enquanto, apenas imprime os dados no console
+                console.log("Nome: " + nome);
+                console.log("E-mail: " + email);
+                console.log("Senha: " + senha);
+
+                // Redireciona o usuário para a página de login
+                window.location.href = 'Login.html';
+            });
+        });
+    </script>
+</body>
+</html>
